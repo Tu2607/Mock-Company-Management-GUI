@@ -1,0 +1,19 @@
+{
+  "login": [
+    {
+      "uname": "TuVu",
+      "password": "Chicken123",
+      "clearance": "2"
+    },
+    {
+      "uname": "TroyB",
+      "password": "Buttsoup",
+      "clearance": "2"
+    },
+    {
+      "uname": "JeffW",
+      "password": "Winger",
+      "clearance": "1"
+    }
+  ]
+}

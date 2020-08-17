@@ -1,0 +1,16 @@
+{
+    "TuVu": { 
+        "name": "Tu Vu",
+        "age": "21",
+        "salary": "40000",
+        "position": "Intern"
+    },
+
+    "TroyB": {
+        "name": "Troy Barnes",
+        "age": "21",
+        "salary": "45000",
+        "position": "None"
+    }
+
+}
