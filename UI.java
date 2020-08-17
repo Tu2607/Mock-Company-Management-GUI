@@ -25,14 +25,31 @@ import org.json.simple.JSONObject;
 /***************/
 
 public class UI extends Application {
+
+    public static Stage primStage = new Stage();
+
     public static void main(String argv[]) {
         launch();
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("BNIS .Inc Staff Management");
+    public void start(Stage mainStage) {
+        loginPage(primStage);
+    }
 
+    private static JSONObject GetData(String name) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        try(FileReader reader = new FileReader(name)){
+            JSONObject jsonObj = (JSONObject) parser.parse(reader);
+            return jsonObj;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null; //If all fails
+        }
+    }
+
+    public static void loginPage(Stage primaryStage){
+        primaryStage.setTitle("BNIS .Inc Staff Management");
         GridPane mainGrid = new GridPane();
         mainGrid.setPadding(new Insets(15, 15, 15, 15));
         mainGrid.setHgap(20);
@@ -78,7 +95,7 @@ public class UI extends Application {
                         if(passwrd.equals(obj.get("password"))){
                             if(obj.get("clearance").equals("2")){
                                 Entry success = new Entry(GetData("Database.json"), usrname);
-                                primaryStage.setTitle("Hello There!");
+                                primaryStage.setTitle("Employee Information");
                                 primaryStage.setScene(success.LandingPage()); 
                                 primaryStage.show();
                             } else if (obj.get("clearance").equals("1")){
@@ -99,16 +116,4 @@ public class UI extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    private JSONObject GetData(String name) throws IOException, ParseException {
-        JSONParser parser = new JSONParser();
-        try(FileReader reader = new FileReader(name)){
-            JSONObject jsonObj = (JSONObject) parser.parse(reader);
-            return jsonObj;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null; //If all fails
-        }
-    }
-
 }

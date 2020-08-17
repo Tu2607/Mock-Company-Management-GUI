@@ -58,11 +58,20 @@ class Entry extends Employee{
         Label age = new Label("Age: " + Integer.toString(this.age));
         Label salary = new Label("Salary (U.S Dollars): " + Integer.toString(this.salary));
 
+        HBox btn = new HBox();
+        Button signOut = new Button("Sign out");
+        btn.getChildren().addAll(signOut);
+        btn.setAlignment(Pos.CENTER_RIGHT);
+
+        signOut.setOnAction(e -> {
+            UI.loginPage(UI.primStage); //Static methods so it works
+        });
+
         VBox body = new VBox();
         body.setSpacing(10);
         body.setPadding(new Insets(10,20,10,20));
 
-        body.getChildren().addAll(welcome,name,position,age,salary);
+        body.getChildren().addAll(welcome,name,position,age,salary, btn);
         body.setAlignment(Pos.TOP_CENTER);
 
         Scene scene = new Scene(body, 400, 600);
