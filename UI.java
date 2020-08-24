@@ -99,7 +99,11 @@ public class UI extends Application {
                                 primaryStage.setScene(success.LandingPage()); 
                                 primaryStage.show();
                             } else if (obj.get("clearance").equals("1")){
-                                //TBD
+                                Manager success = new Manager(GetData("Database.json"), usrname);
+                                primaryStage.setTitle("Manager Page");
+                                Scene scene = success.LandingPage(); 
+                                primaryStage.setScene(success.LandingPage(scene));
+                                primaryStage.show();
                             }
                             break;
                         }

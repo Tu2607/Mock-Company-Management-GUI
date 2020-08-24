@@ -11,6 +11,12 @@
         "age": "21",
         "salary": "45000",
         "position": "None"
-    }
+    },
 
+    "JeffW": {
+        "name": "Jeff Winger",
+        "age": "40",
+        "salary": "70000",
+        "position": "Professor"
+    }
 }
